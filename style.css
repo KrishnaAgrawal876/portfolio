@@ -1,0 +1,578 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fafafa;
+  font-family: Arial, sans-serif;
+}
+
+.education {
+  width: 100%; /* Adjusted width to 100% */
+  max-width: 1200px;
+  /* border: 5px solid black; */
+  margin: 0px; /* Remove top margin */
+  padding: 0px; /* Remove padding */
+}
+
+.education a {
+  font-weight: bold;
+  text-decoration: none;
+}
+.education a:hover {
+  text-decoration: underline;
+}
+.education h1 {
+  padding-top: 30px;
+  font-size: 50px;
+}
+main.row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 0%; Remove top margin */
+  padding: 0; /*Remove padding */
+  /* border: 5px solid blueviolet; */
+}
+
+.col header.title {
+  /* border: 5px solid pink; */
+  font-family: helvetica;
+  /* color: #11a372; */
+  color: blue;
+  padding: 20px 0; /* top right bottom left */
+  text-align: center;
+  /* margin: 10px; Remove Margin */
+  margin: 0;
+}
+
+.col .contents {
+  position: relative;
+  width: 100%;
+}
+
+.col .contents::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #11a372;
+}
+
+.col .contents .box {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  border: 8px solid #eaeaea;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-decoration: blink;
+}
+
+.col .contents .box:hover {
+  box-shadow: 0px 3px 12px 0px #ccc;
+  border: 1px solid transparent;
+}
+
+.col .contents .box::before {
+  /* content: ""; */
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  left: 50%;
+  top: 20px;
+  background-color: #11a372;
+  border: 2px solid white;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.col .contents .box:nth-child(odd) {
+  align-self: flex-end;
+  margin-left: 55%;
+}
+
+.col .contents .box:nth-child(even) {
+  align-self: flex-start;
+  margin-left: -55%;
+}
+
+.col .contents .box h4 {
+  position: relative;
+  color: #11a372;
+}
+
+.col .contents .box h3 {
+  font-size: 19px;
+  padding: 10px 0px 6px;
+  font-family: helvetica;
+  color: #444;
+}
+
+.col .contents .box p {
+  line-height: 1.2;
+  color: #666;
+  font-size: 17px;
+}
+
+@media (max-width: 768px) {
+  .col .contents::before {
+    left: 50%;
+  }
+  .col .contents .box {
+    align-self: center !important;
+    width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .col .contents .box::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* -------------------------------------------- */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5%;
+  padding-left: 50%;
+  transition: padding-right 0.5s;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5%;
+  transition: padding-right 0.5s;
+}
+
+nav ul li {
+  margin: 0 25px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 0;
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  transition: transform 0.5s, color 0.5s;
+}
+
+nav ul li a:hover {
+  color: #11a372;
+  transform: scale(1.1) rotate(+360deg);
+  /* text-decoration: underline; */
+}
+
+/* Cool animation for the nav bar */
+nav ul li a {
+  position: relative;
+  overflow: hidden;
+}
+
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+nav ul li a:hover::before {
+  width: 0;
+  height: 0;
+}
+
+section {
+  padding: 0px 20px; /* top,bottom    left,right */
+  min-height: 100vh;
+  text-align: center; /*Dekh lena tumre hisab sai.*/
+  /* border: 5px solid black; */
+}
+
+#home {
+  padding-top: 60px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+/* ------------------------------------------------------- */
+#skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #f4f4f4;
+}
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  width: 80%;
+  height: 80%;
+}
+.logo-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  overflow: hidden; /*Ensure the elements do not overflow*/
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.logo-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.3s; /*this one*/
+}
+
+.logo-item .back-text {
+  position: absolute;
+  font-size: 1.2em;
+  color: #333;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.logo-item:hover img {
+  transform: translateY(-20px);
+  opacity: 0; /*Optional: fade out the image*/
+}
+
+.logo-item:hover .back-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ------------------------------------------------------ */
+#certificates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #f4f4f4;
+}
+
+.carousel {
+  position: relative;
+  width: 80%; /*here 80 to 100 kiya*/
+  height: 80%; /*add line*/
+  max-width: 1000px; /*and also here 600 to 1000*/
+  max-height: 700px; /*add line*/
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%; /*add line*/
+}
+
+.carousel-item {
+  /*pura block hii*/
+  position: relative; /*abhi just add kii*/
+  min-width: 100%;
+  height: 100%;
+  transition: opacity 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #3498db; /*unique border color*/
+  box-sizing: border-box;
+}
+
+.carousel-item a {
+  /*carefully study this block*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item img {
+  width: auto;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* .carousel-item img { */
+/* width: 100%; */
+/* height: 100%; */
+/*  */
+/* display: block; */
+/* object-fit: contain; */
+/* } */
+
+.carousel-item:not(.active) {
+  display: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.left-btn {
+  left: 10px;
+}
+
+.right-btn {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/* --------------------------------------------------------- */
+/* #contact i {
+  border: 5px solid black;
+  color: rebeccapurple;
+  width: 50px;
+  height: 100px;
+} */
+
+#contact {
+  background-color: #888;
+  border: 2px solid red;
+  padding: 20px;
+  text-align: center;
+}
+
+#contact h1 {
+  /* border: 2px solid purple; */
+  font-size: 70px;
+  margin: 5% 20% 0% 20%; /* top right bottom left */
+  padding: 30px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 2%;
+  margin-bottom: 12%;
+}
+
+.info-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+}
+
+.info-item i {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info-item h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.info-item p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.info-item a {
+  color: #0066cc;
+  text-decoration: none;
+}
+/* -------------------------------projects--------------------------------- */
+
+#projects {
+  text-align: center;
+  padding: 20px;
+}
+#projects h1 {
+  /* border: 2px solid purple; */
+  font-size: 65px;
+  /* margin: 5% 20% 0% 20%; top right bottom left */
+  font-family: cursive;
+  color: peru;
+  padding: 30px;
+}
+
+.carousel {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  /* border: 2px solid #0066cc; */
+  border: 1px solid #0066cc;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 33.33%;
+  box-sizing: border-box;
+  /* padding: 100px; */
+  /* border: 2px solid #11a372; */
+  border: 1px dashed #11a372;
+  min-height: 90%;
+}
+
+.carousel-slide img {
+  /* width: 100%; */
+  width: 70%;
+  height: 70%;
+  display: block;
+  margin: auto;
+}
+
+.project-description {
+  padding: 10px;
+  background-color: #fff;
+}
+
+.project-description a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-description a:hover {
+  text-decoration: underline;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.carousel-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* ------------------------home section ---------------------------------------- */
+#home {
+  width: 100%;
+  max-width: 1500px;
+  text-align: center;
+  /* border: 4px solid #0066cc; */
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 500px; /*pata karna: why px karne pe height chng ho rii, but % pe koni hori.*/
+  /* border: 4px solid #8ccf10; */
+}
+
+.profile-image {
+  flex: 0 0 150px;
+  margin-right: 20px;
+}
+
+.profile-image img {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-info {
+  /* display: flex; */
+  justify-content: space-between;
+  width: 100%;
+  /* border: 2px solid red; */
+  margin-top: 0px;
+}
+
+.info-left,
+.info-right {
+  flex: 1;
+  padding: 10px;
+}
+
+.info-left h2 {
+  margin-top: 10px;
+  /* margin: 0%; */
+  font-size: 70px;
+  /* border: 2px solid brown; */
+}
+
+.info-right {
+  text-align: left;
+  margin-left: 20px;
+}
